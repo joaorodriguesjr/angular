@@ -1,0 +1,13 @@
+version: "3"
+services:
+  runtime:
+    container_name: angular_runtime
+    build:
+      context: ..
+      dockerfile: docker/runtime/dockerfile
+    working_dir: "/usr/src/app"
+    volumes:
+      - ../angular:/usr/src/app
+    ports:
+      - "4200:4200"
+    entrypoint: bash -c "ng serve --host 0.0.0.0"
